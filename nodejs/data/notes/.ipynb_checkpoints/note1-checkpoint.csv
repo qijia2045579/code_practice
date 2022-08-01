@@ -1,6 +1,0 @@
-id,create_date,content,status
-0,2022-07-12,"test",finished
-1,2022-07-12,"create task board",finished
-2,2022-07-12,"optimize task board",waiting
-3,2022-07-12,"added for test",test
-4,2022-07-13,"delete item",starting

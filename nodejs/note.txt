@@ -1,2 +1,0 @@
-This note is created by NodeJS!
-This is appened message!

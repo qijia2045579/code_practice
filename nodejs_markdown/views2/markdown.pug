@@ -1,0 +1,47 @@
+doctype html
+html
+    head
+        title Qi_markdown
+        //- script(src='../javascripts/function1.js')
+        script(src='../js/func.js')
+        style
+            include ../public/css/mdstyle.css
+    body
+        div(class='relative head_div')
+            //- img(src="./resources/icon.png", alt="icon.png", class='icon_fill' )
+        h1(class='head_syl_1') 
+            | Qi_Markdown
+            //- | <br>
+            //- | -- NodeJS+Express+Pug+MarkdownIt+CSS
+        div(class='divcenter', style="border:1px dashed green")
+            p(class='textcenter') __Simply use Markdown for my own Notes__
+            p(class='textcenter', style='font-size: 9px') Use template to save a new one for edit
+            // Cool! This works! I put the md_files as a JS array ([]) in the route.js and then read files from the server disk
+            // Then it can read the names correctly here. Pretty a easy way to communicate between server and the front
+            //- each f in md_files
+            //-     li #{f}
+            div(class='divcenter')
+                select(class='select_sty', id='selector', size=5)
+                    each f in md_files
+                        option(value="") #{f}
+            div(class='divcenter')
+                div(class='divleft')
+                    button(class='button_sty1', onclick='readmdfile()') Edit Below
+                div(class='divright')
+                    button(class='button_sty1') Remove
+        div
+            div(class='editor_div')
+                div
+                    p(class='textcenter', id='editor_title') #{file_title}
+                div
+                    textarea(class='editor_textarea', id='editor', oninput='textchange()', rows='30')
+                div
+                    button(class='button_sty2', onclick='savemdfile()') Save as New
+                    input(type="text", class="input_sty1", id="save_name", value="Do not Duplicate!")
+            div(class='md_div', id='md_div')
+                // Here we use !{}: it will read the mk_content as a string, if you use #, then it will have quotes for this content.
+                | !{mk_content}
+        div(class='divbottom')
+            hr(style="width:100%;text-align:left;margin-left:0")
+    footer
+        p(style="font-size:15px") Build from scraps. Invented by: Qi Jia
