@@ -3,17 +3,18 @@ html
     head
         title Qi_markdown
         //- script(src='../javascripts/function1.js')
+        //- script(src='https://unpkg.com/stackedit-js@1.0.7/docs/lib/stackedit.min.js')
         script(src='../js/func.js')
         style
             include ../public/css/mdstyle.css
-    body
+    body()
         div(class='relative head_div')
             //- img(src="./resources/icon.png", alt="icon.png", class='icon_fill' )
-        h1(class='head_syl_1') 
+        h1(class='head_syl_1', onclick='hideselection()') 
             | Qi_Markdown
             //- | <br>
             //- | -- NodeJS+Express+Pug+MarkdownIt+CSS
-        div(class='divcenter', style="border:1px dashed green")
+        div(class='divcenter', id='selection', style="border:1px dashed green;display:none")
             p(class='textcenter') __Simply use Markdown for my own Notes__
             p(class='textcenter', style='font-size: 9px') Use template to save a new one for edit
             // Cool! This works! I put the md_files as a JS array ([]) in the route.js and then read files from the server disk
@@ -25,10 +26,11 @@ html
                     each f in md_files
                         option(value="") #{f}
             div(class='divcenter')
-                div(class='divleft')
+                //- div(class='divleft')
+                div(class='divcenter')
                     button(class='button_sty1', onclick='readmdfile()') Edit Below
-                div(class='divright')
-                    button(class='button_sty1') Remove
+                //- div(class='divright')
+                //-     button(class='button_sty1') Remove
         div
             div(class='editor_div')
                 div

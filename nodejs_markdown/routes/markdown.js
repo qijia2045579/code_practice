@@ -38,6 +38,20 @@ router.post('/update', (req, res) => {
 }
 );
 
+router.post('/passcode', (req, res) => {
+
+    var passcode = req.body.passcode;
+    // console.log("passcode"+passcode);
+    var passed = false;
+    if(passcode=='0925'){
+        passed = true;
+    }
+    var context = {
+        "passed":passed
+    }
+    res.send(context);
+}
+);
 
 router.post('/save', (req, res) => {
     var oldmdname = req.body.oldmdname;
