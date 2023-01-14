@@ -1,0 +1,25 @@
+
+<script>
+
+function buttonclick() {
+    // alert("button click");
+    var givenname = document.getElementById("name").value;
+    // alert(givenname);
+    fetch(`/clock/${givenname}`)
+      .then(function (response) {
+          return response.text();
+      }).then(function (text) {
+          console.log('GET response text:');
+          console.log(text); 
+          document.getElementById("content").innerText=text;
+      });
+}
+
+</script>
+
+
+<p> Please enter your name: </p>
+<br>
+<input type="text" id="name" name="name">
+<button type="button" id="button" onclick="buttonclick()">Start Timer!</button>
+<p id="content"></p>
