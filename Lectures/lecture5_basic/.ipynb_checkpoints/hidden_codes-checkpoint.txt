@@ -1,0 +1,4 @@
+b_compiled_script = compile('print(hash(name))','','exec')
+
+import marshal
+marshal.dump(b_compiled_script, open('./uniqueid', 'wb'))
